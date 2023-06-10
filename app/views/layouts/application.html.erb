@@ -14,11 +14,14 @@
     <header>
       <% if admin_signed_in? %>
       <li>
-        <%= link_to "About",about_path %>
+        <%= link_to "About", about_path %>
+      </li>
+      <li>
+        <%= link_to "ログアウト", destroy_admin_session_patht, method: :delete %>
       </li>
       <% else %>
       <li>
-        <%= link_to "About",about_path %>
+        <%= link_to "About", about_path %>
       </li>
       <% end %>
     </header>
