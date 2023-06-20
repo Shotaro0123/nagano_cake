@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   get '/items' => 'public/items#index'
   get '/customers/my_page' => 'public/customers#show'
+  resources :items, only:[:index]
 
   devise_for :customers,skip: [:passwords], controllers: {
    registrations: "public/registrations",
