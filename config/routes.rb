@@ -6,7 +6,16 @@ Rails.application.routes.draw do
   get 'about' => 'public/homes#about'
   get 'items' => 'public/items#index'
   get 'cart_items' => 'public/cart_items#index'
+
   get 'customers/my_page' => 'public/customers#show'
+  get 'customers/information/edit' => 'public/customers#edit'
+  patch 'customers/information/edit'  => 'public/customers#update'
+  get 'customers/unsubscribe' => 'public/customers#unsubscribe'
+  patch 'customers/withdraw' => 'public/customers#withdraw'
+
+  get 'addresses' => 'public/addresses#index'
+
+  resources :orders, only: [:index]
 
   #以下adminコントローラのルーティング
   namespace :admin do
