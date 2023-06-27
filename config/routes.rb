@@ -20,8 +20,9 @@ Rails.application.routes.draw do
   #以下adminコントローラのルーティング
   namespace :admin do
   get '' => 'homes#top'
-  get 'items' => 'items#index'
   get 'customers' => 'customers#index'
+
+  resources :items, only: [:index, :new, :create]
  end
 
   devise_for :customers,skip: [:passwords], controllers: {
