@@ -1,2 +1,19 @@
 <h1>商品一覧</h1>
 <%= link_to "新規登録",new_admin_item_path %>
+<% @items.each do |item| %>
+ <div>
+  <table>
+   <tr>
+    <th><p>商品ID</p></th>
+    <th><p>商品名</p></th>
+    <th><p>税抜価格</p></th>
+   </tr>
+   <tr>
+    <th><%= item.id %></th>
+    <th><%= item.name %></th>
+    <th><%= item.price %></th>
+   </tr>
+  </table>
+ </div>
+<% end %>
+<%= paginate @items %>

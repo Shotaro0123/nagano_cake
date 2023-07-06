@@ -1,5 +1,6 @@
 class Admin::ItemsController < ApplicationController
  def index
+  @items = Item.page(params[:page])
  end
 
  def new
@@ -9,7 +10,11 @@ class Admin::ItemsController < ApplicationController
  def create
   @item = Item.new(item_params)
   @item.save
-  redirect_to ""
+  redirect_to admin_items_path
+ end
+
+ def show
+  @item = Item.find(params[:id])
  end
 
  private
