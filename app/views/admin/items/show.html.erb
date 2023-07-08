@@ -6,3 +6,4 @@
  <p>商品説明<%= @item.introduction %></p>
  <p>税込価格<%= @item.price %></p>
 </div>
+<%= link_to "編集する", edit_admin_item_path(@item.id) %>

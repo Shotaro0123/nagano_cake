@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get '' => 'homes#top'
   get 'customers' => 'customers#index'
 
-  resources :items, only: [:index, :new, :create, :show]
+  resources :items, only: [:index, :new, :create, :show, :edit, :update]
  end
 
   devise_for :customers,skip: [:passwords], controllers: {
