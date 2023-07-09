@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   #以下adminコントローラのルーティング
   namespace :admin do
   get '' => 'homes#top'
-  get 'customers' => 'customers#index'
+  resources :customers, only: [:index, :show, :edit]
 
   resources :items, only: [:index, :new, :create, :show, :edit, :update]
  end

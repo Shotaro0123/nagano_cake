@@ -10,7 +10,10 @@
    </tr>
    <tr>
     <th><%= item.id %></th>
-    <th><%= item.name %></th>
+    <th>
+     <%= link_to admin_item_path(item.id) do %>
+     <%= item.name %></th>
+     <% end %>
     <th><%= item.price %></th>
    </tr>
   </table>
