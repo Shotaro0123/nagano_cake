@@ -11,14 +11,16 @@
    <tr>
     <th><%= customer.id %></th>
     <th>
+     <%= link_to admin_customer_path(customer.id) do %>
      <%= customer.last_name %>
      <%= customer.first_name %>
+     <% end %>
     </th>
     <th>
      <%= customer.email %>
     </th>
     <th>
-     
+
      <%= customer.is_deleted %></th>
    </tr>
   </table>

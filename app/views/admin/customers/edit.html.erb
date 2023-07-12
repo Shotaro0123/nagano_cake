@@ -1,10 +1,22 @@
-<h1>さんの会員情報編集</h1>
+<h1><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h1>
 
-<span>会員ID</span>
-<span>氏名</span>
-<span>フリガナ</span>
-<span>郵便番号</span>
-<span>住所</span>
-<span>電話番号</span>
-<span>メールアドレス</span>
-<span>会員ステータス</span>
+<%= form_with model: @customer, url: admin_customer_path(@customer.id) do |f| %>
+ <span>会員ID</span>
+ <%= @customer.id %><br>
+ <span>氏名</span>
+ <%= f.text_field :last_name %>
+ <%=f.text_field :first_name %><br>
+ <span>フリガナ</span>
+ <%= f.text_field :last_name_kana %>
+ <%= f.text_field :first_name_kana %><br>
+ <span>郵便番号</span>
+ <%= f.text_field :postal_code %><br>
+ <span>住所</span>
+ <%= f.text_field :address %><br>
+ <span>電話番号</span>
+ <%= f.text_field :telephone_number %><br>
+ <span>メールアドレス</span>
+ <%= f.text_field :email %><br>
+ <span>会員ステータス</span>
+
+<% end %>
