@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '' => 'public/homes#top'
   get 'about' => 'public/homes#about'
   get 'items' => 'public/items#index'
+  get 'items/:id' => 'public/items#show'
   get 'cart_items' => 'public/cart_items#index'
 
   get 'customers/my_page' => 'public/customers#show'
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
   #以下adminコントローラのルーティング
   namespace :admin do
   get '' => 'homes#top'
-  resources :customers, only: [:index, :show, :edit]
+  resources :customers, only: [:index, :show, :edit, :update]
 
   resources :items, only: [:index, :new, :create, :show, :edit, :update]
  end

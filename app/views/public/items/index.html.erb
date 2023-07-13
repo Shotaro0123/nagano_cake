@@ -1,1 +1,12 @@
 <h1>商品一覧</h1>
+
+<% @items.each do |item| %>
+  <span>
+  <%= link_to items_path(item.id) do %>
+  <%= image_tag item.image, size: "150x100" %>
+  <%= item.name %>
+  <%= item.price %>
+  <% end %>
+  </span>
+<% end %>
+<%= paginate @items %>

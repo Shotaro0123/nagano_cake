@@ -1,12 +1,9 @@
 <h1>商品一覧</h1>
-<%= link_to "新規登録",new_admin_item_path %>
 <% @items.each do |item| %>
  <div>
-  <table>
-   <tr>
-    <th><p>商品ID</p></th>
-    <th><p>商品名</p></th>
-    <th><p>税抜価格</p></th>
+  <p>商品ID</p>
+  <p>商品名</p>
+  <p>税抜価格</p>
    </tr>
    <tr>
     <th><%= item.id %></th>
