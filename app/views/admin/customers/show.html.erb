@@ -10,8 +10,8 @@
  <p>メールアドレス<%= @customer.email %></p>
  <p>
   会員ステータス
-  <% if @customer.is_deleted %>
-   <%= @customer.is_deleted == false  == "有効" %>
+  <% if @customer.is_deleted == false %>
+   有効
   <% else %>
    退会
   <% end %>

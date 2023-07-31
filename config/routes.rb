@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '' => 'public/homes#top'
   get 'about' => 'public/homes#about'
   get 'items' => 'public/items#index'
-  get 'items/:id' => 'public/items#show'
+  get 'items/:id' => 'public/items#show', as: 'item'
   get 'cart_items' => 'public/cart_items#index'
 
   get 'customers/my_page' => 'public/customers#show'
@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get 'addresses' => 'public/addresses#index'
 
   resources :orders, only: [:index]
+  resources :cart_items, only: [:index, :udpate, :create, :destroy, :destroy_all]
 
   #以下adminコントローラのルーティング
   namespace :admin do

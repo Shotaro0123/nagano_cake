@@ -1,1 +1,13 @@
 <h1>商品詳細ページ</h1>
+<div>
+ <%= image_tag @item.image, size: "300x200" %>
+</div>
+<%= @item.name %><br>
+<%= @item.introduction %><br>
+<span>¥<%= @item.add_tax_price.to_s(:dalimited) %>（税込）</span>
+
+<%= form_with model: @cart_item, url: cart_item_path do |f| %>
+ <%= f.hidden_field :item_id, :value => @item.id %>
+ <%= f.select :amount, *[1..10] %>
+ <%= f.submit'カートに入れる' %>
+<% end %>
