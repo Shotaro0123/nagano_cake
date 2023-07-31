@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   patch 'customers/withdraw' => 'public/customers#withdraw'
 
   get 'addresses' => 'public/addresses#index'
-
+  
+  
   resources :orders, only: [:index]
   resources :cart_items, only: [:index, :udpate, :create, :destroy, :destroy_all]
 
