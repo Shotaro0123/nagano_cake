@@ -1,25 +1,24 @@
 Rails.application.routes.draw do
 
- root to:"public/homes#top"
+ scope module: :public do
+ root to:"homes#top"
 
-  get '' => 'public/homes#top'
-  get 'about' => 'public/homes#about'
-  get 'items' => 'public/items#index'
-  get 'items/:id' => 'public/items#show', as: 'item'
-  get 'cart_items' => 'public/cart_items#index'
+  get '' => 'homes#top'
+  get 'about' => 'homes#about'
+  get 'items' => 'items#index'
+  get 'items/:id' => 'items#show', as: 'item'
 
-  get 'customers/my_page' => 'public/customers#show'
-  get 'customers/information/edit' => 'public/customers#edit'
-  patch 'customers/information/edit'  => 'public/customers#update'
-  get 'customers/unsubscribe' => 'public/customers#unsubscribe'
-  patch 'customers/withdraw' => 'public/customers#withdraw'
+  get 'customers/my_page' => 'customers#show'
+  get 'customers/information/edit' => 'customers#edit'
+  patch 'customers/information/edit'  => 'customers#update'
+  get 'customers/unsubscribe' => 'customers#unsubscribe'
+  patch 'customers/withdraw' => 'customers#withdraw'
+  get 'addresses' => 'addresses#index'
 
-  get 'addresses' => 'public/addresses#index'
-
-  resources :items, only: [:new]
+  resources :items, only: [:new, :create]
   resources :orders, only: [:index]
-  resources :cart_items, only: [:udpate, :create, :destroy, :destroy_all, :new]
-
+  resources :cart_items, only: [:index, :udpate, :create, :destroy, :destroy_all, :new]
+ end
   #以下adminコントローラのルーティング
   namespace :admin do
   get '' => 'homes#top'
