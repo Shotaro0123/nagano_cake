@@ -15,10 +15,10 @@ Rails.application.routes.draw do
   patch 'customers/withdraw' => 'public/customers#withdraw'
 
   get 'addresses' => 'public/addresses#index'
-  
-  
+
+  resources :items, only: [:new]
   resources :orders, only: [:index]
-  resources :cart_items, only: [:index, :udpate, :create, :destroy, :destroy_all]
+  resources :cart_items, only: [:udpate, :create, :destroy, :destroy_all, :new]
 
   #以下adminコントローラのルーティング
   namespace :admin do

@@ -2,12 +2,14 @@
 <% @customers.each do |customer| %>
  <div>
   <table>
+   <thead>
    <tr>
     <th><p>会員ID</p></th>
     <th><p>氏名</p></th>
     <th><p>メールアドレス</p></th>
     <th><p>ステータス</p></th>
    </tr>
+   </thead>
    <tr>
     <th><%= customer.id %></th>
     <th>

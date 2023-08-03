@@ -18,10 +18,10 @@
  <span>メールアドレス</span>
  <%= f.text_field :email %><br>
  <span>会員ステータス</span>
- <%= f.radio_button :is_deleted, "valid"  %>
- <%= f.label :radio_button_valid, "有効" %>
- <%= f.radio_button :is_deleted, "withdraw" %>
- <%= f.label :radio_button_withdraw, "退会" %>
+ <%= f.radio_button :is_deleted, "false"  %>
+ <%= f.label :radio_button_false, "有効" %>
+ <%= f.radio_button :is_deleted, "true" %>
+ <%= f.label :radio_button_true, "退会" %>
 
 <br>
 <%= f.submit '変更を保存' %>
