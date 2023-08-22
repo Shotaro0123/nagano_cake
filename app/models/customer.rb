@@ -7,4 +7,14 @@ class Customer < ApplicationRecord
   has_many :addresses
   has_many :orders
   has_many :cart_items
+
+  def address_display
+   '〒' + postal_code + ' ' + address 
+  end
+
+  def full_name
+    last_name + first_name
+  end
+
+
 end

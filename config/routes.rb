@@ -15,9 +15,10 @@ Rails.application.routes.draw do
   patch 'customers/withdraw' => 'customers#withdraw'
   get 'addresses' => 'addresses#index'
   delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
+  post 'orders/confirm' => 'POST'
 
   resources :items, only: [:new, :create]
-  resources :orders, only: [:index]
+  resources :orders, only: [:index, :new, :create]
   resources :cart_items, only: [:index, :update, :create, :destroy]
  end
   #以下adminコントローラのルーティング
