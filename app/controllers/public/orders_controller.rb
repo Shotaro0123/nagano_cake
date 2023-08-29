@@ -10,12 +10,12 @@ class Public::OrdersController < ApplicationController
 
  end
 
-def confirm
+ def confirm
   @order = Order.new(order_params)
-end
+ end
 
-private
-def order_params
+ private
+ def order_params
   params.require(:order).permit(:payment_method)
-end
+ end
 end

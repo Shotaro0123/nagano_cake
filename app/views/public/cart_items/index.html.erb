@@ -32,4 +32,13 @@
    <% end %>
    </tbody>
   </table>
+   <div>
+    <%= link_to "買い物を続ける", top_path %>
+    <td>合計金額</td>
+    <td><%= @cart_items.sum(&:subtotal) %></td>
+   </div>
+
  </div>
+
+
+

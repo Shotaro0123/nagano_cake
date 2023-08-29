@@ -13,9 +13,6 @@
  <%= current_customer.address_display %> <br>
  <%= current_customer.full_name %> <br>
  <%= f.radio_button :select_address, 1 %>
- <%= f.label :radio_button_current_select_address_display,  '登録住所から確認' %> <br>
- <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) %> <br>
- <%= f.radio_button :select_address, 2 %>
  <%= f.label :radio_button_select_address, '新しいお届け先' %>　<br>
  <span>郵便番号（ハイフンなし）</span>
  <%= f.text_field :postal_code %><br>
