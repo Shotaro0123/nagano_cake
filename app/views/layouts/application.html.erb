@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
-    <title>NaganoCake</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>NaganoCake</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,61 +13,68 @@
 
   <body>
     <header>
-      <% if admin_signed_in? %>
-        <% if request.fullpath.include? "/admin" %>
-        <li>
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+
+         <% if admin_signed_in? %>
+         <% if request.fullpath.include? "/admin" %>
+         <li>
           <%= link_to "商品一覧", admin_items_path %>
-        </li>
-        <li>
+         </li>
+         <li>
           <%= link_to "会員一覧", admin_customers_path %>
-        </li>
-        <li>
+         </li>
+         <li>
           <%= link_to "注文履歴一覧", admin_path %>
-        </li>
-        <li>
+         </li>
+         <li>
           <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-        </li>
-        <% else %>
-        <li>
+         </li>
+         <% else %>
+         <a class="navbar-brand"><%= link_to image_tag('logo_cake3.png'), top_path %></a>
+         <li>
           <%= link_to "About", about_path %>
-        </li>
-        <li>
+         </li>
+         <li>
           <%= link_to "商品一覧", items_path %>
-        </li>
-        <li>
+         </li>
+         <li>
           <%= link_to "新規登録",  new_customer_registration_path %>
-        </li>
-        <li>
+         </li>
+         <li>
           <%= link_to "ログイン", new_customer_session_path %>
-        </li>
-        <% end %>
-      <% elsif customer_signed_in? %>
-        <li>
+         </li>
+         <% end %>
+         <% elsif customer_signed_in? %>
+         <a class="navbar-brand p-3 "><%= link_to image_tag('logo_cake3.png'), top_path %></a>
+         <li>
           <%= link_to "マイページ", customers_my_page_path %>
-        </li>
-        <li>
+         </li>
+         <li>
           <%= link_to "商品一覧", items_path %>
-        </li>
-        <li>
+         </li>
+         <li>
           <%= link_to "カート", cart_items_path %>
-        </li>
-        <li>
+         </li>
+         <li>
           <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
-        </li>
-      <% else %>
-        <li>
+         </li>
+         <% else %>
+         <li>
           <%= link_to "About", about_path %>
-        </li>
-        <li>
+         </li>
+         <li>
           <%= link_to "商品一覧", items_path %>
-        </li>
-        <li>
+         </li>
+         <li>
           <%= link_to "新規登録",  new_customer_registration_path %>
-        </li>
-        <li>
+         </li>
+         <li>
           <%= link_to "ログイン", new_customer_session_path %>
-        </li>
-      <% end %>
+         </li>
+         <% end %>
+        </div>
+      </nav>
     </header>
     <%= yield %>
   </body>
