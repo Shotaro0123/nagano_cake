@@ -12,5 +12,6 @@
  <%= f.label :radio_button_current_address_display, 'ご自身の住所' %> <br>
  <%= current_customer.address_display %> <br>
  <%= current_customer.full_name %> <br>
+ <%= f.hidden_field :select_address %>
  <%= f.submit '確認画面へ進む' %>
 <% end %>

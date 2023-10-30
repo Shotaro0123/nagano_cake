@@ -38,7 +38,7 @@
  </tr>
  <tr>
   <th>商品合計</th>
-  <td><%= @cart_items.sum(&:subtotal) %></td>
+  <td><%= total = @cart_items.sum(&:subtotal) %></td>
  </tr>
  <tr>
   <th>請求金額</th>
@@ -61,3 +61,17 @@
    </td>
  </tr>
 </table>
+<div>
+ <%= form_with model: @order, url: orders_path do |f| %>
+  <%= f.hidden_field :subtotal %>
+  <%= f.hidden_field :shipping_cost %>
+  <%= f.hidden_field :total_payment %>
+  <%= f.hidden_field :total, :value => @cart_items.sum(&:subtotal) %>
+  <%= f.hidden_field :payment_method %>
+  <%= f.hidden_field :postal_code %>
+  <%= f.hidden_field :address %>
+  <%= f.hidden_field :name %>
+  <%= f.hidden_field :full_name %>
+  <%= f.submit "注文を確定する" %>
+ <% end %>
+</div>

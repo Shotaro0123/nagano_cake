@@ -10,7 +10,7 @@ class Public::OrdersController < ApplicationController
   @order = Order.new(orders_params)
   @order.customer_id = current_customer.id
   @order.save!
-  redirect_to　confirm_path
+  redirect_to　orders_complete_path
  end
 
  def confirm
